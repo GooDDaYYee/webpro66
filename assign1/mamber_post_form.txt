@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>ฟรอ์มสำหรับส่งข้อมูลแบบ GET</title>
+        <meta charset="UTF-8">
+</head>
+<body>
+    <h2>ฟอร์มสมัครสมาชิก</h2>
+    <form method="post" action="show_post.php" enctype="multipart/form-data">
+        <div>รหัสสมาชิก : <input type="text" name="membercode"></div>
+        <div>ชื่อสมาชิก : <input type="text" name="membername"></div>
+        <div>เพศ :
+            <input type="radio" name="gender" value="ชาย" checked>ชาย
+            <input type="radio" name="gender" value="หญิง">หญิง
+            <input type="radio" name="gender" value="ไม่ระบุ">ไม่ระบุ
+        </div>
+        <div>ที่อยู่ : <textarea name="address" cols="80" rows="5"></textarea></div>
+        <div>การศึกษา : 
+            <select name="grad">
+                <option value="ปริญญาเอก">ปริญญาเอก</option>
+                <option value="ปริญญาโท">ปริญญาโท</option>
+                <option value="ปริญญาตรี" selected>ปริญญาตรี</option>
+                <option value="ต่ำกว่าปริญญาตรี">ต่ำกว่าปริญญาตรี</option>
+            </select>
+        </div>
+        <div> รูปภาพ : <input type="file" name="photo"></div>
+        <div>
+            <input type="submit" value="ตกลง">
+            <input type="reset" value="ยกเลิก">
+        </div>
+    </form>
+</body>
+</html>
