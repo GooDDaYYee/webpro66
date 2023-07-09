@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>โปรแกรมคำนวณเลข</title>
+        <title>โปรแกรมคำนวณเลข แบบ Switch</title>
         <meta charset="UTF-8">
 </head>
 <body>
