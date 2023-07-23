@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>การใช้ loop แสดงข้อความตามจำนวนรอบที่กำหนด</title>
+<title>การใช้ Shuffle</title>
 <style type="text/css">
 	div{
 		margin: 20px;

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>การใช้ ksort</title>
+<title>การใช้ arsort</title>
 <style type="text/css">
 	div{
 		margin: 20px;
@@ -12,7 +12,7 @@
  <?php
  $province=array("เชียงใหม่","ลำพูน","ลำปาง","พะเยา","แพร่");
  
- ksort($province); //เรียงข้อมูลจากมากไปน้อย
+ arsort($province); //เรียงข้อมูลจากมากไปน้อย
  for($i=0;$i<=4;$i++){
 	echo $province[$i],"<br>";
  }

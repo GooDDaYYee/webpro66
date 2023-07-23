@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>การใช้ foreach ในการวนรอบแสดงค่าอาเรย์</title>
+<title>การใช้ for each</title>
 <style type="text/css">
 	div{
 		margin: 20px;

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>การใช้ array_reverse</title>
+<title>การใช้ associative_array</title>
 <style type="text/css">
 	div{
 		margin: 20px;

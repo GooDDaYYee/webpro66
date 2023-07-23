@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>การเรียงลำดับข้อมูลในarrayที่มี index เป็นตัวเลข</title>
+<title>การใช้ Sort</title>
 <style type="text/css">
 	div{
 		margin: 20px;
