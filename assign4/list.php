@@ -12,7 +12,7 @@
  <?php
     $student=array("id"=>"64541207098-1","surname"=>"อัครพล","lastname"=>"กันธิยะ","cur"=>"BIS","add"=>"เชียงใหม่");
     
-    while(list($key,$value)=each($student)){
+    while(list($key,$value)=($student)){
         echo $key,"=>";
         echo $value;
         echo "<hr>";

@@ -47,4 +47,22 @@
         echo "</tr>";   
         }
         }
+    // -อัตราดอกเบี้ย
+    // -ดอกเบี้ยคิดเป็นจำนวนเงินกี่บาท
+    // -รวมยอดทั้งหมดที่ต้องชำระ
+    // -รายเดือน
+    // -return ค่า
+    function Lone($cash,$year){
+            if($year=="20"){
+                $rate=12;
+            }elseif($year=="15"){
+                $rate=10;
+            }else{
+                $rate=8;
+            }
+        $data[0] = $cash*$rate/100;
+        $data[1] = $cash+$data[0];
+        $data[2] = $data[1]/($year*12);
+        return $data;
+    }
 ?>
