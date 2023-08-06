@@ -54,13 +54,13 @@
     // -return ค่า
     function Lone($cash,$year){
             if($year=="20"){
-                $rate=12;
+                $data[3]=12;
             }elseif($year=="15"){
-                $rate=10;
+                $data[3]=10;
             }else{
-                $rate=8;
+                $data[3]=8;
             }
-        $data[0] = $cash*$rate/100;
+        $data[0] = $cash*$data[3]/100;
         $data[1] = $cash+$data[0];
         $data[2] = $data[1]/($year*12);
         return $data;

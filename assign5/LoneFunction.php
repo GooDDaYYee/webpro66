@@ -25,7 +25,8 @@
             require("function.php");
             $cash=$_POST['cash'];
             $year=$_POST['year'];
-            list($interest,$total,$monthly)=Lone($cash,$year);
+            list($interest,$total,$monthly,$rate)=Lone($cash,$year);
+            echo"ดอกเบี้ย  ".number_format( $rate, 2 ),"<br>";
             echo"ดอกเบี้ยที่ต้องเสีย  ".number_format( $interest, 2 )," (บาท)<br>";
             echo"จำนวนเงินทั้งหมดที่ต้องจ่าย  ".number_format( $total, 2 )," (บาท)<br>";
             echo"รายเดือนที่ต้องจ่ายในแต่ละเดือน  ".number_format( $monthly, 2 )," (บาท)<br>";
