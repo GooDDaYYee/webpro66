@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>คำนวณหาพื้นที่สามเหลียม</title>
+<title>strlen</title>
 <style type="text/css">
 	div{
 		margin: 20px;
