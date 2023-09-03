@@ -16,6 +16,7 @@
         print_r($data);
         echo "<hr>";
     }
+    mysqli_close($con);// ปิดฐานข้อมูล
 ?>
 </body>
 </html>
