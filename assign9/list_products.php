@@ -57,7 +57,7 @@
     WHERE product_title LIKE '%$keyword%' or product_detail LIKE '%$keyword%'LIMIT $start_row,$rows_per_page") or die("error from q2".mysqli_error($con));
 
     $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
-    echo "<h3>จำนวนสินค้ามีทั้งหมด $row รายการ</h3>";
+    echo "<h3>จำนวนสินค้ามีทั้งหมด $rows รายการ</h3>";
         if($page_id!=1){
             echo "<span><a href='list_products.php?p_id=",$page_id-1,"&keyword=$keyword'>[<]</span>";
         }
@@ -74,18 +74,14 @@
         }
 
     if($rows>0){
-        echo "<h2>จำนวนสินค้าทั้งหมด $rows รายการ</h2>";
         echo "<table border=1>";
-        echo "<tr><th width=100>รหัสสินค้า</th><th width=800>ชื่อสินค้า</th><th width=100>ราคาสินค้า</th></tr>";
-
-        while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){//ฟังก์ชันนี้จะ return ค่าออกมาในรูปแบบ Array
-        
+        echo "<tr><th>รหัสสินค้า</th><th width=700>ชื่อสินค้า</th><th>ราคาสินค้า</th></tr>";
+        while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){
         echo "<tr><td>$product_id</td>";
-        echo "<td><a href='product_detail.php?id=$product_id'>$product_title</a></td>";
-        echo "<td>$product_sprice</td></tr>";
-        
-        }
-        echo "</table>";
+        echo "<td><a href='products_detail.php?id=$product_id'>$product_title</a></td>";
+        echo "<td>$product_sprice บาท</td></tr>";
+    }
+    echo "</table>";
     }else{
     echo "<div>-ไม่มีสินค้าที่ตรงกับการค้นหาของคุณ-</div>";
     }
