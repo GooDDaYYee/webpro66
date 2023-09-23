@@ -7,7 +7,7 @@
         padding:2px 10px;
         border: solid orange 1px;
         border-radius: 5px;
-        margin: 5px
+        margin: 5px;
         text-align: center;
     }
     .pagenow{
