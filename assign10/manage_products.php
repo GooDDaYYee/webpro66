@@ -80,7 +80,7 @@
         echo "<td><a href='products_detail.php?id=$product_id'>$product_title</a></td>";
         echo "<td>$product_sprice บาท</td>";
         echo "<td align='center'><a href='edit_product_form.php?id=$product_id'><img src='../img/b_edit.png'></a></td>";
-        echo "<td align='center'><a href='edit_product_form.php'><img src='../img/b_drop.png'></td>";
+        echo "<td align='center'><img src='../img/b_drop.png'></td>";
         echo "</tr>";
     }
     echo "</table>";
