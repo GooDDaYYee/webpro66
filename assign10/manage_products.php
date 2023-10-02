@@ -57,7 +57,7 @@
     $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
     echo "<h3>จำนวนสินค้ามีทั้งหมด $rows รายการ</h3>";
         if($page_id!=1){
-            echo "<span><a href='manage_products.php?p_id=",$page_id-1,"&keyword=$keyword'>[<]</span>";
+            echo "<span><a href='manage_products.php?p_id=",$page_id-1,"&keyword=$keyword'>[<]</a></span>";
         }
 
     for($i=1;$i<=$pages;$i++){
@@ -68,7 +68,7 @@
         }
     }
     if($page_id!=$pages){
-            echo "<span><a href='manage_products.php?p_id=",$page_id+1,"&keyword=$keyword'>[>]</span>";
+            echo "<span><a href='manage_products.php?p_id=",$page_id+1,"&keyword=$keyword'>[>]</a></span>";
         }
 
     if($rows>0){
