@@ -1,0 +1,45 @@
+#container{
+    width: 1500px;
+    margin:0 auto;
+    border:solid 1px #ccc;
+}
+header{
+    text-align: center;
+    padding: 50px;
+}
+#leftside{
+    width: 300px;
+    border: dashed 1px #ccc;
+    float: left;
+    background-color: #eee;
+    margin: 20px;
+}
+#main{
+    width: 1070px; height: 1000px;
+    float: right;
+    border: solid 1px #f00;
+    margin: 20px;
+    padding: 20px;
+}
+footer{
+    clear: both;
+    padding: 50px;
+    text-align: center;
+    border: dashed 1px #ccc;
+    margin: 20px 20px;
+}
+.pageno,.pagenow{
+    padding:2px 10px;
+    border: solid orange 1px;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+}
+.pagenow{
+    background-color: orange;
+    font-weight: bold;
+    color:#fff;
+}
+.pagebar{
+    margin:10px
+}
