@@ -1,17 +1,5 @@
-<html>
-<head>
-<title>ฟรอ์มสำหรับเพิ่มสินค้า</title>
-<meta charset="utf-8">
-<style type="text/css">
-    div{
-        margin: 5px;
-        padding: 5px;
-    }
-</style>
-</head>
-<body>
     <h1>ฟรอ์มเพิ่มสินค้า</h1>
-    <form method="post" action="insert_product.php" enctype="multipart/form-data">
+    <form method="post" action="index.php?md=admin&action=insert_product" enctype="multipart/form-data">
         <div>*ชื่อสินค้า : <input type="text" name="product_title" size="80" require></div>
         <div>*รายละเอียดสินค้า : 
             <textarea name="product_detail" cols="80" rows="10" require></textarea>
@@ -37,5 +25,3 @@
         </div>
     </form>
     หมายเหตุกรอกข้อมูลทุกช่องที่มีขึ้นเครื่องหมาย *
-</body>
-</html>

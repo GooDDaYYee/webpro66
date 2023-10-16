@@ -7,7 +7,7 @@
     $user=mysqli_query($con,"SELECT username,passwd,level FROM user 
     WHERE username='$form_username' AND passwd='$form_passwd'");
 
-    list($db_username,$db_passwd,$level)=mysqli_fetch_row($user);
+    list($db_username,$db_passwd,$level)=mysqli_fetch_row($user,);
     if($db_username==$form_username AND $db_passwd==$form_passwd){
         $_SESSION['valid_login']=$db_username;
         $_SESSION['user_level']=$level;
