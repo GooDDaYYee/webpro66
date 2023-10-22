@@ -1,4 +1,5 @@
 <?php
+if (!function_exists('connect_db')) {
     function connect_db($type="client"){ // รับค่า $type ตรวจว่าเป็น client หรือไม่
         if($type=="client"){
             $con=mysqli_connect("localhost","root","","onlinestore"); // ในครื่องของเรา
@@ -9,4 +10,5 @@
         return $con;
         // connect_db("client"); การเรียกใช้
     }
+}
 ?>

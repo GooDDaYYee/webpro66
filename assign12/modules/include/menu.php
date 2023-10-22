@@ -5,11 +5,15 @@
         }else{
             $level=$_SESSION['user_level'];
         }
-        echo $level;
+        if($level==1){
+            echo "admin";
+        }elseif($level==2){
+            echo "member";
+        }
         switch($level){
-            case "admin": admin_menu();
+            case 1: admin_menu();
             break;
-            case "member": member_menu();
+            case 2: member_menu();
             break;
             default: web_menu();
         }
@@ -25,20 +29,25 @@
         echo "</ul>";
     }
     function member_menu(){
+        require_once("../require/connect_sql.php");
+        $con=connect_db("client");
+        $result=mysqli_query($con,"SELECT username FROM user") or die( mysqli_error($con));
+        list($username) = mysqli_fetch_row($result);
         echo "<h2>Member Menu</h2>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
         echo "<li><a href = 'index.php?md=products&action=list_products'>รายการสินค้า</a></li>";
-        echo "<li><a href = 'index.php?md=user&action=edit_user_form'>แก้ไขข้อมูลผู้ใช้</a></li>";
+        echo "<li><a href = 'index.php?md=user&action=edit_user&user=$username'>แก้ไขข้อมูลผู้ใช้</a></li>";
         echo "<li><a href = 'index.php?md=user&action=logout'>ออกจากระบบ</a></li>";
         echo "</ul>";
+        mysqli_close($con);
     }
     function web_menu(){
         echo "<h2>Web Menu</h2>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
         echo "<li><a href = 'index.php?md=products&action=list_products'>รายการสินค้า</a></li>";
-        echo "<li><a href = 'index.php?md=user&action=add_user_form'>สมัครสมาชิก</a></li>";
+        echo "<li><a href = 'index.php?md=user&action=add_user_member'>สมัครสมาชิก</a></li>";
         echo "</ul>";
     }
 ?>

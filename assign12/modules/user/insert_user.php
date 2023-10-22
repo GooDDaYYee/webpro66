@@ -10,5 +10,5 @@
     '$_POST[passwd]','$_POST[level]')") or die(mysqli_error($con));
 
     mysqli_close($con);
-    header("Location:index.php?md=user&action=manage_user");
+    header("Location:index.php");
 ?>

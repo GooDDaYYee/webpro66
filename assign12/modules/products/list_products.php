@@ -1,7 +1,28 @@
+<html>
+<head>
+<title>แสดงรายการสินค้าทั้งหมด</title>
+<meta charset="utf-8">
+<style type="text/css">
+    .pageno,.pagenow{
+        padding:2px 10px;
+        border: solid orange 1px;
+        border-radius: 5px;
+        margin: 5px;
+        text-align: center;
+    }
+    .pagenow{
+        background-color: orange;
+        font-weight: bold;
+        color:#fff;
+    }
+    .pagebar{
+        margin:10px
+    }
+</style>
+</head>
+<body>
     <h1>รายการสินค้าในร้านค้าทั้งหมด</h1>
     <form method="get">
-        <input type="hidden" name='md' value="products">
-        <input type="hidden" name='action' value="list_products">
         <input type="search" name="keyword" size="80"> <input type="submit" name="ค้นหา">
     </form>
 <?php
@@ -33,7 +54,7 @@
     WHERE product_title LIKE '%$keyword%' or product_detail LIKE '%$keyword%'LIMIT $start_row,$rows_per_page") or die("error from q2".mysqli_error($con));
 
     $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
-    echo "<h3>จำนวนสินค้ามีทั้งหมด $rows รายการ</h3>";
+    echo "<div class = 'pagebar'>";
         if($page_id!=1){
             echo "<span><a href='index.php?md=products&action=list_products&p_id=",$page_id-1,"&keyword=$keyword'>[<]</a></span>";
         }
@@ -48,13 +69,14 @@
     if($page_id!=$pages){
             echo "<span><a href='index.php?md=products&action=list_products&p_id=",$page_id+1,"&keyword=$keyword'>[>]</a></span>";
         }
+        echo "</div>";
     if($rows>0){
+        echo "<h3>จำนวนสินค้ามีทั้งหมด $allrows รายการ</h3>";
         echo "<table border=1>";
         echo "<tr><th>รหัสสินค้า</th><th width=700>ชื่อสินค้า</th><th>ราคาสินค้า</th></tr>";
         while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){
         echo "<tr><td>$product_id</td>";
-        echo "<td><a href='index.php?md=products&action=products_detail&id=$product_id'>
-        $product_title</a></td>";
+        echo "<td><a href='index.php?md=products&action=products_detail&id=$product_id'>$product_title</a></td>";
         echo "<td>$product_sprice บาท</td></tr>";
     }
     echo "</table>";
@@ -63,3 +85,5 @@
     }
     mysqli_close($con);// ปิดฐานข้อมูล
 ?>
+</body>
+</html>

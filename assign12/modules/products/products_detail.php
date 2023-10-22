@@ -1,7 +1,7 @@
 <?php
 if(empty($_SESSION['valid_login'])){
     echo "<script>alert('คุณไม่มีสิทธิการเข้าใช้งานในหน้านี้');</script>";
-    header("Location:../../index.php");
+    header("Location:index.php");
 }
 ?>
 

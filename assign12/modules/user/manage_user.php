@@ -1,7 +1,7 @@
 <?php
 
 //หน้านี้จะเข้าได้ก่ต่อเมื่อล็อกอินเป็น level admin เท่านั้น
-if($_SESSION['user_level']!="admin"){
+if($_SESSION['user_level']!=1){
     echo "<script>alert('คุณไม่มีสิทธิการเข้าใช้งานในหน้านี้');</script>";
     header("Location:../../index.php");
 }
@@ -42,8 +42,9 @@ if($_SESSION['user_level']!="admin"){
    $result=mysqli_query($con,"SELECT username,passwd,level FROM user 
    WHERE level LIKE '%$keyword%' ORDER BY username
    DESC LIMIT $start_row,$rows_per_page") or die("error from q2".mysqli_error($con));
-    echo "<h3>จำนวน User ทั้งหมด $allrows รายการ</h3>";
+    
    $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
+   echo "<div class = 'pagebar'>";
        if($page_id!=1){
            echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id-1,"&keyword=$keyword'>[<]</a></span>";
        }
@@ -57,18 +58,19 @@ if($_SESSION['user_level']!="admin"){
    if($page_id!=$pages){
            echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id+1,"&keyword=$keyword'>[>]</a></span>";
        }
-
-   if($rows>0){
-       if(!empty($_GET['ck'])){
-           $chk="checked";
-           $text="ไม่เลือก";
-       }else{
-           $chk="";
-           $text="เลือกทั้งหมด";
-       }
+       echo "</div>";
+       if($rows>0){ //ถ้าสินค้ามีจำนวนมากว่า 0 
+        if (!empty($_GET['ck'])) {
+            $chk="";
+            $text="เลือกทั้งหมด"; 
+        }else{
+            $chk="checked";
+            $text="ไม่เลือก";
+        }
        echo "<form method='post' action='index.php?md=admin&action=multi_del'>";
+       echo "<h3>จำนวน User ทั้งหมด $allrows รายการ</h3>";
        echo "<table border=1>";
-       echo "<tr><th width=100><a href='?ck=$chk'>$text</a></th><th>Username</th><th>Password</th><th>Level</th>
+       echo "<tr><th width=100><a href='index.php?md=user&action=manage_user&ck=$chk'>$text</a></th><th>Username</th><th>Password</th><th>Level</th>
        <th>แก้ไข</th><th>ลบ</th></tr>";
        while(list($username,$passwd,$level)=mysqli_fetch_row($result)){
        echo "<tr><td><input type='checkbox' name='del_id[]' value='$username' $chk></td><td>$username</td>";
