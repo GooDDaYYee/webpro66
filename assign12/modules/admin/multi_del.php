@@ -1,7 +1,3 @@
-<form method="get">
-        <input type="hidden" name='md' value="admin">
-        <input type="hidden" name='action' value="manage_products">
-</form>
 <?php
     require("../require/connect_sql.php");
     $con=connect_db("client");
@@ -25,5 +21,5 @@
     }
     mysqli_free_result($res);
     mysqli_close($con);
-    header("Location:index.php?md=admin&action=manage_products");
+    header("Location:index.php?md=admin&action=manage_products&ck=$chk'");
 ?>

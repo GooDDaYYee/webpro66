@@ -27,5 +27,5 @@
     product_pic='$update',product_ship='$product_ship' WHERE product_id='$_POST[product_id]'") or die(mysqli_error($con));
 
     mysqli_close($con);
-    header("Location:manage_products.php");
+    header("Location:index.php?md=admin&action=manage_products&ck=$chk'");
 ?>

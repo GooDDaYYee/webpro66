@@ -1,5 +1,4 @@
 <?php
-
 //หน้านี้จะเข้าได้ก่ต่อเมื่อล็อกอินเป็น level admin เท่านั้น
 if($_SESSION['user_level']!=1){
     echo "<script>alert('คุณไม่มีสิทธิการเข้าใช้งานในหน้านี้');</script>";
@@ -46,35 +45,35 @@ if($_SESSION['user_level']!=1){
    
    echo "<div class = 'pagebar'>";
        if($page_id!=1){
-           echo "<span><a href='index.php?md=admin&action=manage_products&p_id=",$page_id-1,"&keyword=$keyword'>[<]</a></span>";
+           echo "<span><a href='index.php?md=admin&action=manage_products&p_id=",$page_id-1,"&keyword=$keyword&ck=checked'>[<]</a></span>";
        }
    for($i=1;$i<=$pages;$i++){
        if($page_id==$i){//ตรวจสอบว่าอยู่หน้าไหนแล้วให้ทำตัวหนังสือเป็นสี
            echo "<span class='pagenow'>$i</span>";
        }else{
-           echo "<span class='pageno'><a href='index.php?md=admin&action=manage_products&p_id=$i&keyword=$keyword'>$i</a></span>";
+           echo "<span class='pageno'><a href='index.php?md=admin&action=manage_products&p_id=$i&keyword=$keyword&ck=checked'>$i</a></span>";
        }
    }
    if($page_id!=$pages){
-           echo "<span><a href='index.php?md=admin&action=manage_products&p_id=",$page_id+1,"&keyword=$keyword'>[>]</a></span>";
+           echo "<span><a href='index.php?md=admin&action=manage_products&p_id=",$page_id+1,"&keyword=$keyword&ck=checked'>[>]</a></span>";
        }
        echo "</div>";
    if($rows>0){ //ถ้าสินค้ามีจำนวนมากว่า 0 
-        if (!empty($_GET['ck'])) {
-            $chk="checked";
-            $text="ไม่เลือก";
-        }else{
-            $chk="";
-            $text="เลือกทั้งหมด";
+        if (!empty($_GET['ck'])){
+            $chk = "";
+            $text = "เลือกทั้งหมด";
+        } else{
+            $chk = "checked";
+            $text = "ไม่เลือก";
         }
        echo "<form method='post' action='index.php?md=admin&action=multi_del'>";
        echo "<h3>จำนวนสินค้ามีทั้งหมด $allrows รายการ</h3>";
        echo "<table border=1>";
-       echo "<tr><th width=100><a href='?ck=$chk'>$text</a></th><th>รหัสสินค้า</th><th width=700>ชื่อสินค้า</th><th>ราคาสินค้า</th>
+       echo "<tr><th width=100><a href='?md=admin&action=manage_products&ck=$chk'>$text</a></th><th>รหัสสินค้า</th><th width=700>ชื่อสินค้า</th><th>ราคาสินค้า</th>
        <th>แก้ไข</th><th>ลบ</th></tr>";
        while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){
-       echo "<tr><td><input type='checkbox' name='del_id[]' value='$product_id' $chk></td><td>$product_id</td>";
-       echo "<td><a href='index.php?md=admin&action=multi_del&id=$product_id'>$product_title</a></td>";
+        echo "<tr><td><input type='checkbox' name='del_id[]' value='$product_id' $chk></td><td>$product_id</td>";
+       echo "<td><a href='index.php?md=admin&action=products_detail&id=$product_id'>$product_title</a></td>";
        echo "<td>$product_sprice บาท</td>";
 
        echo "<td align='center'><a href='index.php?md=admin&action=edit_product_form&id=$product_id'><img src='../img/b_edit.png'></a></td>";

@@ -1,3 +1,9 @@
+<?php
+if($_SESSION['user_level']!=1){
+    echo "<script>alert('คุณไม่มีสิทธิการเข้าใช้งานในหน้านี้');</script>";
+    header("Location:../../index.php");
+}
+?>
     <h1>ฟรอ์มเพิ่มสินค้า</h1>
     <form method="post" action="index.php?md=admin&action=insert_product" enctype="multipart/form-data">
         <div>*ชื่อสินค้า : <input type="text" name="product_title" size="80" require></div>

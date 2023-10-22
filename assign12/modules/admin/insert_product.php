@@ -24,5 +24,5 @@
     '$filename','$product_ship')") or die(mysqli_error($con));
 
     mysqli_close($con);
-    header("Location:index.php");
+    header("Location:index.php?md=admin&action=manage_products&ck=$chk'");
 ?>

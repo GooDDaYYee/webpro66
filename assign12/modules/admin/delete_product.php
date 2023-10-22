@@ -1,4 +1,10 @@
 <?php
+
+if($_SESSION['user_level']!=1){
+    echo "<script>alert('คุณไม่มีสิทธิการเข้าใช้งานในหน้านี้');</script>";
+    header("Location:../../index.php");
+}
+
     require("../require/connect_sql.php");
     $con=connect_db("client");
 
@@ -17,5 +23,5 @@
     or die(mysqli_error($con));
     
     mysqli_close($con);
-    header("Location:index.php");
+    header("Location:index.php?md=admin&action=manage_products&ck=$chk'");
 ?>

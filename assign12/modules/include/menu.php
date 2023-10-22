@@ -23,8 +23,8 @@
         echo "<h2>Admin Menu</h2>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
-        echo "<li><a href = 'index.php?md=admin&action=manage_products'>จัดการสินค้า</a></li>";
-        echo "<li><a href = 'index.php?md=user&action=manage_user'>จัดการผู้ใช้</a></li>";
+        echo "<li><a href = 'index.php?md=admin&action=manage_products&ck=checked'>จัดการสินค้า</a></li>";
+        echo "<li><a href = 'index.php?md=user&action=manage_user&ck=checked'>จัดการผู้ใช้</a></li>";
         echo "<li><a href = 'index.php?md=user&action=logout'>ออกจากระบบ</a></li>";
         echo "</ul>";
     }

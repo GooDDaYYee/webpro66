@@ -46,17 +46,17 @@ if($_SESSION['user_level']!=1){
    $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
    echo "<div class = 'pagebar'>";
        if($page_id!=1){
-           echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id-1,"&keyword=$keyword'>[<]</a></span>";
+           echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id-1,"&keyword=$keyword&ck=checked'>[<]</a></span>";
        }
    for($i=1;$i<=$pages;$i++){
        if($page_id==$i){//ตรวจสอบว่าอยู่หน้าไหนแล้วให้ทำตัวหนังสือเป็นสี
            echo "<span class='pagenow'>$i</span>";
        }else{
-           echo "<span class='pageno'><a href='index.php?md=admin&action=manage_user&p_id=$i&keyword=$keyword'>$i</a></span>";
+           echo "<span class='pageno'><a href='index.php?md=admin&action=manage_user&p_id=$i&keyword=$keyword&ck=checked'>$i</a></span>";
        }
    }
    if($page_id!=$pages){
-           echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id+1,"&keyword=$keyword'>[>]</a></span>";
+           echo "<span><a href='index.php?md=admin&action=manage_user&p_id=",$page_id+1,"&keyword=$keyword&ck=checked'>[>]</a></span>";
        }
        echo "</div>";
        if($rows>0){ //ถ้าสินค้ามีจำนวนมากว่า 0 
@@ -67,7 +67,7 @@ if($_SESSION['user_level']!=1){
             $chk="checked";
             $text="ไม่เลือก";
         }
-       echo "<form method='post' action='index.php?md=admin&action=multi_del'>";
+       echo "<form method='post' action='index.php?md=user&action=del_user'>";
        echo "<h3>จำนวน User ทั้งหมด $allrows รายการ</h3>";
        echo "<table border=1>";
        echo "<tr><th width=100><a href='index.php?md=user&action=manage_user&ck=$chk'>$text</a></th><th>Username</th><th>Password</th><th>Level</th>
@@ -80,8 +80,8 @@ if($_SESSION['user_level']!=1){
            }else{
             echo "<td>member</td>";
            }
-       echo "<td align='center'><a href='index.php?md=user&action=edit_user&id=$username'><img src='../img/b_edit.png'></a></td>";
-       echo "<td align='center'><a href='index.php?md=user&action=del_user&id=$username' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'><img src='../img/b_drop.png'</a></td>";
+       echo "<td align='center'><a href='index.php?md=user&action=edit_user&username=$username'><img src='../img/b_edit.png'></a></td>";
+       echo "<td align='center'><a href='index.php?md=user&action=delete_user&username=$username' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'><img src='../img/b_drop.png'</a></td>";
        echo "</tr>";
    }
    echo "</table>";
