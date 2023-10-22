@@ -21,5 +21,5 @@
     }
     mysqli_free_result($res);
     mysqli_close($con);
-    header("Location:index.php?md=admin&action=manage_products&ck=$chk'");
+    header("Location:index.php?md=admin&action=manage_products&ck=checked'");
 ?>

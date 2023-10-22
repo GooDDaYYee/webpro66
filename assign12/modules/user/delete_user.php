@@ -7,5 +7,5 @@
     $res = mysqli_query($con, "DELETE FROM user WHERE username='$username'") or die(mysqli_error($con));
 
     mysqli_close($con);
-    header("Location: index.php?md=user&action=manage_user&ck=$chk");
+    header("Location: index.php?md=user&action=manage_user&ck=checked");
 ?>

@@ -12,6 +12,6 @@ if($_SESSION['user_level']!="1"){ //ถ้าไม่ใช่ admin
         mysqli_query($con,"UPDATE user SET username='$_POST[username]',
         passwd='$_POST[passwd]' WHERE username='$_POST[username]';") or die("sql1".mysqli_error($con));
     mysqli_close($con);
-    header("Location:index.php?md=user&action=manage_user&ck=$chk");
+    header("Location:index.php?md=user&action=manage_user&ck=checked");
     
 ?>

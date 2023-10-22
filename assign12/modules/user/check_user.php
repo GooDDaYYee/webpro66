@@ -15,7 +15,7 @@
     }else{
         $_SESSION['valid_login']="";
         $_SESSION['user_level']="";
-        echo "<script>alert('Username หรือ Password ไม่ถูกต้องกรุณา Login ใหม่');</script>";
+        echo "<script>alert('Username หรือ Password ไม่ถูกต้อง กรุณา Login ใหม่');</script>";
     }
     header("Location:index.php");
 ?>
