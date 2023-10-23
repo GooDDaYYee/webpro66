@@ -29,19 +29,16 @@
         echo "</ul>";
     }
     function member_menu(){
-        require_once("../require/connect_sql.php");
-        $con=connect_db("client");
-        $result=mysqli_query($con,"SELECT username FROM user") or die( mysqli_error($con));
-        list($username) = mysqli_fetch_row($result);
+        $username=$_SESSION['valid_login'];
         echo "<h2>Member Menu</h2>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
-        echo "<li><a href = 'index.php?md=products&action=list_products'>รายการสินค้า</a></li>";
-        echo "<li><a href = 'index.php?md=user&action=edit_user&user=$username'>แก้ไขข้อมูลผู้ใช้</a></li>";
-        echo "<li><a href = 'index.php?md=user&action=logout'>ออกจากระบบ</a></li>";
+        echo "<li><a href='index.php?md=products&action=list_products'>รายการสินค้า</a></li>";
+        echo "<li><a href='index.php?md=user&action=edit_userMember&username=$username'>แก้ไขข้อมูลผู้ใช้</a></li>";
+        echo "<li><a href='index.php?md=user&action=logout'>ออกจากระบบ</a></li>";
         echo "</ul>";
-        mysqli_close($con);
     }
+    
     function web_menu(){
         echo "<h2>Web Menu</h2>";
         echo "<ul>";

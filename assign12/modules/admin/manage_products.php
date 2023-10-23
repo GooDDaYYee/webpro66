@@ -6,13 +6,12 @@ if($_SESSION['user_level']!=1){
 }
 ?>
 <form method="get">
-        <input type="hidden" name='md' value="admin">
-        <input type="hidden" name='action' value="manage_products">
+    <input type="hidden" name='md' value="admin">
+    <input type="hidden" name='action' value="manage_products">
+    <h2>รายการสินค้าในร้านค้าทั้งหมด</h2>
+    <input type="search" name="keyword" size="80" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
+    <input type="submit" name="ค้นหา" value="ค้นหา">
 </form>
-<h1>รายการสินค้าในร้านค้าทั้งหมด</h1>
-    <form method="get">
-        <input type="search" name="keyword" size="80"> <input type="submit" name="ค้นหา">
-    </form>
 <?php
    require("../require/connect_sql.php");
    $con=connect_db("client");
@@ -67,13 +66,13 @@ if($_SESSION['user_level']!=1){
             $text = "ไม่เลือก";
         }
        echo "<form method='post' action='index.php?md=admin&action=multi_del'>";
-       echo "<h3>จำนวนสินค้ามีทั้งหมด $allrows รายการ</h3>";
-       echo "<table border=1>";
-       echo "<tr><th width=100><a href='?md=admin&action=manage_products&ck=$chk'>$text</a></th><th>รหัสสินค้า</th><th width=700>ชื่อสินค้า</th><th>ราคาสินค้า</th>
+       echo "<h4>จำนวนสินค้ามีทั้งหมด $allrows รายการ</h4>";
+       echo "<table border=1 class='table'>";
+       echo "<tr><th width=110><a href='?md=admin&action=manage_products&ck=$chk'>$text</a></th><th width=80>รหัสสินค้า</th><th width=1200>ชื่อสินค้า</th><th width=150>ราคาสินค้า</th>
        <th>แก้ไข</th><th>ลบ</th></tr>";
        while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){
         echo "<tr><td><input type='checkbox' name='del_id[]' value='$product_id' $chk></td><td>$product_id</td>";
-       echo "<td><a href='index.php?md=admin&action=products_detail&id=$product_id'>$product_title</a></td>";
+       echo "<td><a href='index.php?md=products&action=products_detail&id=$product_id'>$product_title</a></td>";
        echo "<td>$product_sprice บาท</td>";
 
        echo "<td align='center'><a href='index.php?md=admin&action=edit_product_form&id=$product_id'><img src='../img/b_edit.png'></a></td>";
@@ -81,8 +80,9 @@ if($_SESSION['user_level']!=1){
        echo "</tr>";
    }
    echo "</table>";
-   echo "<input type='submit' value='ลบสินค้าที่เลือก' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
-   echo "<a href='index.php?md=admin&action=add_product_form'><input type='button' value='เพิ่มสินค้า'></a>";
+   echo "<input class='btn btn-primary rounded-pill px-2' type='submit' value='ลบสินค้าที่เลือก' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
+   echo " ";
+   echo "<a href='index.php?md=admin&action=add_product_form'><input class='btn btn-primary rounded-pill px-2' type='button' value='เพิ่มสินค้า'></a>";
    echo "</form>";
    }else{
    echo "<div>-ไม่มีสินค้าที่ตรงกับการค้นหาของคุณ-</div>";

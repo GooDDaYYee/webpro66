@@ -1,3 +1,4 @@
+
 <?php
 
 //หน้านี้จะเข้าได้ก่ต่อเมื่อล็อกอินเป็น level admin เท่านั้น
@@ -7,13 +8,12 @@ if($_SESSION['user_level']!=1){
 }
 ?>
 <form method="get">
-        <input type="hidden" name='md' value="user">
-        <input type="hidden" name='action' value="manage_user">
+    <input type="hidden" name='md' value="user">
+    <input type="hidden" name='action' value="manage_user">
+    <h2>รายการสินค้าในร้านค้าทั้งหมด</h2>
+    <input type="search" name="keyword" size="80" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
+    <input type="submit" name="ค้นหา" value="ค้นหา">
 </form>
-<h1>รายการUserทั้งหมด</h1>
-    <form method="get">
-        <input type="search" name="keyword" size="80"> <input type="submit" name="ค้นหา">
-    </form>
 <?php
    require("../require/connect_sql.php");
    $con=connect_db("client");
@@ -25,7 +25,7 @@ if($_SESSION['user_level']!=1){
    }
    //นับจำนวนรายการสินค้าทั้งหมด
        $result2=mysqli_query($con,"SELECT username FROM user
-       WHERE level LIKE '%$keyword%'") or die("error from q1".mysqli_error($con));
+       WHERE username LIKE '%$keyword%'") or die("error from q1".mysqli_error($con));
 
        if(empty($_GET['p_id'])){ //มีการคลิกลิงค์เลขหน้าหรือยัง
            $page_id=1;//กำหนดให้แสดงหน้า 1 เป็นหน้าแรก
@@ -40,7 +40,7 @@ if($_SESSION['user_level']!=1){
 
    //แสดงรายการสินค้า
    $result=mysqli_query($con,"SELECT username,passwd,level FROM user 
-   WHERE level LIKE '%$keyword%' ORDER BY username
+   WHERE username LIKE '%$keyword%' ORDER BY username
    DESC LIMIT $start_row,$rows_per_page") or die("error from q2".mysqli_error($con));
     
    $rows=mysqli_num_rows($result);//นับจำนวนแถวที่ select ออกมาได้
@@ -69,24 +69,25 @@ if($_SESSION['user_level']!=1){
         }
        echo "<form method='post' action='index.php?md=user&action=del_user'>";
        echo "<h3>จำนวน User ทั้งหมด $allrows รายการ</h3>";
-       echo "<table border=1>";
-       echo "<tr><th width=100><a href='index.php?md=user&action=manage_user&ck=$chk'>$text</a></th><th>Username</th><th>Password</th><th>Level</th>
+       echo "<table border=1 class='table'>";
+       echo "<tr><th width=110><a href='index.php?md=user&action=manage_user&ck=$chk'>$text</a></th><th>Username</th><th>Password</th><th>Level</th>
        <th>แก้ไข</th><th>ลบ</th></tr>";
        while(list($username,$passwd,$level)=mysqli_fetch_row($result)){
        echo "<tr><td><input type='checkbox' name='del_id[]' value='$username' $chk></td><td>$username</td>";
        echo "<td>$passwd</td>";
-        if($level==0){
+        if($level==1){
             echo "<td>admin</td>";
            }else{
             echo "<td>member</td>";
            }
-       echo "<td align='center'><a href='index.php?md=user&action=edit_user&username=$username'><img src='../img/b_edit.png'></a></td>";
-       echo "<td align='center'><a href='index.php?md=user&action=delete_user&username=$username' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'><img src='../img/b_drop.png'</a></td>";
+       echo "<td align='center'><a href='index.php?md=user&action=edit_userAdmin&id=$username'><img src='../img/b_edit.png'></a></td>";
+       echo "<td align='center'><a href='index.php?md=user&action=delete_user&id=$username' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'><img src='../img/b_drop.png'</a></td>";
        echo "</tr>";
    }
    echo "</table>";
-   echo "<input type='submit' value='ลบสินค้าที่เลือก' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
-   echo "<a href='index.php?md=user&action=add_user'><input type='button' value='เพิ่มUser'></a>";
+   echo "<input class='btn btn-primary rounded-pill px-2' type='submit' value='ลบUserทั้งหมด' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
+   echo " ";
+   echo "<a href='index.php?md=user&action=add_user'><input class='btn btn-primary rounded-pill px-2' type='button' value='เพิ่มUser'></a>";
    echo "</form>";
    }else{
    echo "<div>-ไม่มีสินค้าที่ตรงกับการค้นหาของคุณ-</div>";

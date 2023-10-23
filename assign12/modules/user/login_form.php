@@ -1,12 +1,16 @@
 <h2 style="text-align: center;">Login Form</h2>
 <form method="POST" action="index.php?md=user&action=check_user" style="text-align: center;">
-    <div>Username :
-    <br><input type="text" name="username"></div>
+    <div class="form-floating">
+    <input class="form-control" placeholder="Username" type="text" name="username">
+    <label for="floatingInput">Username</label>
+    </div>
     <br>
-    <div>Password :
-    <br><input type="Password" name="passwd"></div>
+    <div class="form-floating">
+    <input class="form-control" placeholder="Password" type="Password" name="passwd">
+    <label for="floatingInput">Password</label>
+    </div>
     <br>
     <div style="text-align: center;">
-        <input type="submit" name="Signin">
+        <input class="btn btn-primary rounded-pill px-3" type="submit" name="Signin">
     </div>
 </form>
