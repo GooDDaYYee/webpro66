@@ -4,7 +4,7 @@ if($_SESSION['user_level']!=1){
     header("Location:../../index.php");
 }
 ?>
-    <h1>ฟรอ์มเพิ่มสินค้า</h1>
+    <h2>ฟรอ์มเพิ่มสินค้า</h2>
     <form method="post" action="index.php?md=admin&action=insert_product" enctype="multipart/form-data">
         <div>*ชื่อสินค้า : <input type="text" name="product_title" size="80" require></div>
         <div>*รายละเอียดสินค้า : 

@@ -6,9 +6,9 @@
             $level=$_SESSION['user_level'];
         }
         if($level==1){
-            echo "admin";
+            echo "<div style='text-align: center;'>สถานะ : admin</div>";
         }elseif($level==2){
-            echo "member";
+            echo "<div style='text-align: center;'>สถานะ : member</div>";
         }
         switch($level){
             case 1: admin_menu();
@@ -20,7 +20,7 @@
     }
 
     function admin_menu(){
-        echo "<h2>Admin Menu</h2>";
+        echo "<h4>Admin Menu</h4>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
         echo "<li><a href = 'index.php?md=admin&action=manage_products&ck=checked'>จัดการสินค้า</a></li>";
@@ -30,7 +30,7 @@
     }
     function member_menu(){
         $username=$_SESSION['valid_login'];
-        echo "<h2>Member Menu</h2>";
+        echo "<h4>Member Menu</h4>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
         echo "<li><a href='index.php?md=products&action=list_products'>รายการสินค้า</a></li>";
@@ -40,7 +40,7 @@
     }
     
     function web_menu(){
-        echo "<h2>Web Menu</h2>";
+        echo "<h4>Web Menu</h4>";
         echo "<ul>";
         echo "<li><a href='index.php'>หน้าแรก</a></li>";
         echo "<li><a href = 'index.php?md=products&action=list_products'>รายการสินค้า</a></li>";

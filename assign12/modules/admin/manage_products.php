@@ -10,7 +10,7 @@ if($_SESSION['user_level']!=1){
     <input type="hidden" name='action' value="manage_products">
     <h2>รายการสินค้าในร้านค้าทั้งหมด</h2>
     <input type="search" name="keyword" size="80" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
-    <input type="submit" name="ค้นหา" value="ค้นหา">
+    <input class='btn btn-primary rounded-pill px-2' type="submit" name="ค้นหา" value="ค้นหา">
 </form>
 <?php
    require("../require/connect_sql.php");

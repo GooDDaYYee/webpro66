@@ -19,8 +19,8 @@
     list($product_id,$product_title,$product_detail,$product_nprice
     ,$product_sprice,$product_cate,$product_pic,$product_ship)=mysqli_fetch_row($result);
     ?>
-    <h1>ฟรอ์มแก้ไขสินค้า</h1>
-    <form method="post" action="update_product.php" enctype="multipart/form-data">
+    <h2>ฟรอ์มแก้ไขสินค้า</h2>
+    <form method="post" action="index.php?md=admin&action=update_product" enctype="multipart/form-data">
         <input type="hidden" name="product_id" value="<?php echo $product_id?>">
         <div>*ชื่อสินค้า : <input type="text" name="product_title" size="80" require value="<?php 
         echo $product_title?>"></div>
@@ -56,8 +56,8 @@
                 }
             ?>
         <div><input type="checkbox" name="product_ship" value="1"<?php echo $chk?>>ส่งภายในประเทศ</div>
-        <div><input type="submit" name="bsubmit" value="แก้ไข">
-            <input type="reset" value="ยกเลิก">  
+        <div><input class='btn btn-primary' type="submit" name="bsubmit" value="แก้ไข">
+            <input class='btn btn-primary' type="reset" value="ยกเลิก">  
         </div>
     </form>
     หมายเหตุกรอกข้อมูลทุกช่องที่มีขึ้นเครื่องหมาย *

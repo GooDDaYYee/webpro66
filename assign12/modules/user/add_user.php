@@ -1,4 +1,4 @@
-<h1>ฟรอ์มเพิ่มUser</h1>
+<h2>ฟอร์มเพิ่มUser</h2>
     <form method="post" action="index.php?md=user&action=insert_user" enctype="multipart/form-data">
         <div>*Username : <input type="text" name="username" require></div>
         <div>*Password : <input type="Password" name="passwd" require></div>

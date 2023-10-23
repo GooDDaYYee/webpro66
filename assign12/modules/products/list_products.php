@@ -1,7 +1,7 @@
 <form method="get">
     <h2>รายการสินค้าในร้านค้าทั้งหมด</h2>
     <input type="search" name="keyword" size="80" value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
-    <input type="submit" name="ค้นหา" value="ค้นหา">
+    <input class='btn btn-primary rounded-pill px-2' type="submit" name="ค้นหา" value="ค้นหา">
 </form>
 <?php
    require("../require/connect_sql.php");
@@ -59,7 +59,7 @@
        echo "<form method='post' action='index.php?md=admin&action=multi_del'>";
        echo "<h4>จำนวนสินค้ามีทั้งหมด $allrows รายการ</h4>";
        echo "<table border=1 class='table'>";
-       echo "<tr><th width=100>รหัสสินค้า</th><th width=1000>ชื่อสินค้า</th><th>ราคาสินค้า</th></tr>";
+       echo "<tr><th width=100>รหัสสินค้า</th><th width=800>ชื่อสินค้า</th><th>ราคาสินค้า</th></tr>";
        while(list($product_id,$product_title,$product_sprice)=mysqli_fetch_row($result)){
         echo "<tr><td>$product_id</td>";
        echo "<td><a href='index.php?md=products&action=products_detail&id=$product_id'>$product_title</a></td>";
