@@ -6,7 +6,7 @@
         <input type="hidden" name='level' value="2">
         <br>
         <div>
-            <input class="btn btn-primary rounded-pill px-3" type="submit" name="bsubmit" value="เพิ่มUser">
-            <input class="btn btn-primary rounded-pill px-3"  type="reset" value="ยกเลิก">  
+            <input style='background-color: red; border-color: red;' class="btn btn-primary rounded-pill px-3" type="submit" name="bsubmit" value="เพิ่มUser">
+            <input style='background-color: green; border-color: green;' class="btn btn-primary rounded-pill px-3"  type="reset" value="ยกเลิก">  
         </div>
     </form>

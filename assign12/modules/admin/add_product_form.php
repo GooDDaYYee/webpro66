@@ -26,8 +26,8 @@ if ($_SESSION['user_level'] != 1) {
     </div>
     <div>รูปภาพ : <input type="file" name="product_pic"></div>
     <div><input type="checkbox" name="product_ship" value="1">ส่งภายในประเทศ</div>
-    <div><input type="submit" name="bsubmit" value="เพิ่มสินค้า">
-        <input type="reset" value="ยกเลิก">
+    <div><input style='background-color: green; border-color: green;' class="btn btn-primary" type="submit" name="bsubmit" value="เพิ่มสินค้า">
+        <input style='background-color: red; border-color: red;' class="btn btn-primary" type="reset" value="ยกเลิก">
     </div>
 </form>
 หมายเหตุกรอกข้อมูลทุกช่องที่มีขึ้นเครื่องหมาย *

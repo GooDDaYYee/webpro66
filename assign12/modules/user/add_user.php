@@ -15,8 +15,8 @@
                        </select>
         </div>
         <div>
-            <input type="submit" name="bsubmit" value="เพิ่มUser">
-            <input type="reset" value="ยกเลิก">  
+            <input style='background-color: green; border-color: green;' class="btn btn-primary" type="submit" name="bsubmit" value="เพิ่มUser">
+            <input style='background-color: red; border-color: red;' class="btn btn-primary" type="reset" value="ยกเลิก">  
         </div>
     </form>
     หมายเหตุกรอกข้อมูลทุกช่องที่มีขึ้นเครื่องหมาย *
