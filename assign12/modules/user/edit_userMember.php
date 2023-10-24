@@ -15,7 +15,7 @@ list($passwd) = mysqli_fetch_row($result);
         <br>
         <input type="hidden" name="level" value="2">
         <div>
-            <input class='btn btn-primary' type="submit" value="Edit">
+            <input style='background-color: green; border-color: green;' class='btn btn-primary' type="submit" value="Edit">
         </div>
     </form>
 </div>

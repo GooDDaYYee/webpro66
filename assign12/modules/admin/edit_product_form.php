@@ -56,8 +56,8 @@
                 }
             ?>
         <div><input type="checkbox" name="product_ship" value="1"<?php echo $chk?>>ส่งภายในประเทศ</div>
-        <div><input class='btn btn-primary' type="submit" name="bsubmit" value="แก้ไข">
-            <input class='btn btn-primary' type="reset" value="ยกเลิก">  
+        <div><input style='background-color: green; border-color: green;' class='btn btn-primary' type="submit" name="bsubmit" value="แก้ไข">
+            <input style='background-color: red; border-color: red;' class='btn btn-primary' type="reset" value="ยกเลิก">  
         </div>
     </form>
     หมายเหตุกรอกข้อมูลทุกช่องที่มีขึ้นเครื่องหมาย *

@@ -85,9 +85,9 @@ if($_SESSION['user_level']!=1){
        echo "</tr>";
    }
    echo "</table>";
-   echo "<input class='btn btn-primary rounded-pill px-2' type='submit' value='ลบUserทั้งหมด' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
+   echo "<input style='background-color: red; border-color: red;' class='btn btn-primary rounded-pill px-2' type='submit' value='ลบUserทั้งหมด' onclick='return confirm(\"คุณแน่ใจหรือไม่ว่าจะลบรายการสินค้านี้ !!!\")'>";
    echo " ";
-   echo "<a href='index.php?md=user&action=add_user'><input class='btn btn-primary rounded-pill px-2' type='button' value='เพิ่มUser'></a>";
+   echo "<a href='index.php?md=user&action=add_user'><input style='background-color: green; border-color: green;' class='btn btn-primary rounded-pill px-2' type='button' value='เพิ่มUser'></a>";
    echo "</form>";
    }else{
    echo "<div>-ไม่มีสินค้าที่ตรงกับการค้นหาของคุณ-</div>";

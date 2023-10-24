@@ -31,7 +31,7 @@ list($username, $passwd, $level) = mysqli_fetch_row($result);
             </select>
         </div>
         <div>
-            <input class='btn btn-primary' type="submit" value="Edit">
+            <input style='background-color: green; border-color: green;' class='btn btn-primary' type="submit" value="Edit">
         </div>
     </form>
 </div>
