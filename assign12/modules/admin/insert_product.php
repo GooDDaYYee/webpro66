@@ -1,6 +1,6 @@
 <?php
     require("../require/connect_sql.php");
-    $con=connect_db("client");
+    $con=connect_db("server");
 
     if(isset($_FILES['product_pic']['name'])){
     $filename=$_FILES['product_pic']['name'];

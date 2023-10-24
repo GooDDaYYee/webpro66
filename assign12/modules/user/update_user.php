@@ -4,7 +4,7 @@ if ($_SESSION['user_level'] != "1"&&$_SESSION['user_level'] != "2") { //ถ้�
     echo "<script>window.location='index.php'</script>";
 } else {
     require("../require/connect_sql.php");
-    $con = connect_db("client");
+    $con = connect_db("server");
     
     if (isset($_POST['username'])) {
         $username = $_POST['username'];

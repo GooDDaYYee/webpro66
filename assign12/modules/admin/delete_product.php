@@ -5,7 +5,7 @@ if($_SESSION['user_level']!=1){
 }
 
     require("../require/connect_sql.php");
-    $con=connect_db("client");
+    $con=connect_db("server");
 
     $product_id=$_GET['id'];//รหัสสินค้าที่ส่งมากับสินค้า
     //ดึงชื่อไฟล์ภาพสินค้าจากฐานข้อมูล

@@ -1,6 +1,6 @@
 <?php
 require("../require/connect_sql.php");
-$con = connect_db("client");
+$con = connect_db("server");
 $username = $_GET['username'];
 $result = mysqli_query($con, "SELECT passwd,level FROM user WHERE username='$username'") or die(mysqli_error($con));
 list($passwd) = mysqli_fetch_row($result);

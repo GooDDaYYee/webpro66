@@ -5,7 +5,7 @@
 </form>
 <?php
    require("../require/connect_sql.php");
-   $con=connect_db("client");
+   $con=connect_db("server");
 
    if(empty($_GET['keyword'])){
        $keyword="";

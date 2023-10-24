@@ -1,6 +1,6 @@
 <?php
 require("../require/connect_sql.php");
-$con = connect_db("client");
+$con = connect_db("server");
 $username = $_GET['id'];
 $result = mysqli_query($con, "SELECT username,passwd,level FROM user WHERE username='$username'") or die(mysqli_error($con));
 list($username, $passwd, $level) = mysqli_fetch_row($result);
@@ -16,7 +16,7 @@ list($username, $passwd, $level) = mysqli_fetch_row($result);
         <div>*ตำแหน่ง: <select name="level">
                 <?php
                 require("../require/connect_sql.php");
-                $con = connect_db("client");
+                $con = connect_db("server");
 
                 $cate = mysqli_query($con, "SELECT level_id,level_name FROM level") or die(mysqli_error($con));
                 while (list($level_id, $level_name) = mysqli_fetch_row($cate)) {

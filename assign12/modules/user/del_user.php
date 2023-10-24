@@ -1,6 +1,6 @@
 <?php
     require("../require/connect_sql.php");
-    $con = connect_db("client");
+    $con = connect_db("server");
 
     $del_id=$_POST['del_id'];
     $username = $_GET['username']; // รหัสสินค้าที่ส่งมากับสินค้า

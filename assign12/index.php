@@ -9,7 +9,7 @@ session_start();
     <title>ระบบจัดการข้อมูลสินค้า</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="layout1.css">
+    <link rel="stylesheet" href="layout2.css">
 </head>
 <body>
     <div id="container">

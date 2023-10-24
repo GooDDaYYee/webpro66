@@ -1,6 +1,6 @@
 <?php
     require("../require/connect_sql.php");
-    $con=connect_db();
+    $con=connect_db("server");
     $form_username=$_POST['username'];
     $form_passwd=$_POST['passwd'];
 

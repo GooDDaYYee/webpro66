@@ -4,7 +4,7 @@
 </form>
 <?php
     require("../require/connect_sql.php");
-    $con=connect_db("client");
+    $con=connect_db("server");
 
     mysqli_query($con,"INSERT INTO user (username,passwd,level) VALUE ('$_POST[username]',
     '$_POST[passwd]','$_POST[level]')") or die(mysqli_error($con));

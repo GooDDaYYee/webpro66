@@ -12,7 +12,7 @@
 <body>
     <?php
     require("../require/connect_sql.php");
-    $con=connect_db("client");
+    $con=connect_db("server");
     $product_id=$_GET['id'];//รับค่ารหัสสินค้ามาจาก link
     $result=mysqli_query($con,"SELECT * FROM products WHERE product_id='$product_id'") or die("error1=".mysqli_error($con));
 

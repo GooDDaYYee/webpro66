@@ -1,6 +1,6 @@
 <?php
     require("../require/connect_sql.php");
-    $con = connect_db("client");
+    $con = connect_db("server");
     $username = $_GET['id']; // รหัสสินค้าที่ส่งมากับสินค้า
 
     // ลบข้อมูลจากฐานข้อมูล
